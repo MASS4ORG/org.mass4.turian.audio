@@ -1,0 +1,4 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup><TargetFramework>net10.0</TargetFramework><OutputType>Exe</OutputType><ImplicitUsings>enable</ImplicitUsings><Nullable>enable</Nullable><AllowUnsafeBlocks>true</AllowUnsafeBlocks><IsTestProject>true</IsTestProject><IsPackable>false</IsPackable><UseMicrosoftTestingPlatformRunner>true</UseMicrosoftTestingPlatformRunner><TestingPlatformDotnetTestSupport>true</TestingPlatformDotnetTestSupport></PropertyGroup>
+  <ItemGroup><ProjectReference Include="../../Source/Turian.Audio.Editor/Turian.Audio.Editor.csproj" /><ProjectReference Include="../../Source/Turian.Audio/Turian.Audio.csproj" /><PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="10.0.14" /><PackageReference Include="xunit.v3" Version="4.0.2" /><PackageReference Include="NSubstitute" Version="6.2.0" /><PackageReference Include="Microsoft.Testing.Extensions.CodeCoverage" Version="18.12.0" /></ItemGroup>
+</Project>

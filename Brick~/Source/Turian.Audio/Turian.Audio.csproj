@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup><TargetFramework>net10.0</TargetFramework><Nullable>enable</Nullable><ImplicitUsings>disable</ImplicitUsings><AllowUnsafeBlocks>true</AllowUnsafeBlocks><Version>1.0.0</Version></PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="$(TurianDir)Turian/Engine/Core/Turian.Engine.Core.csproj" />
+    <ProjectReference Include="$(TurianDir)Turian/Editor/CSharp/CodeGenerator/Turian.CSharp.CodeGenerator.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false" PrivateAssets="all" />
+    <Compile Include="../../../Runtime/**/*.cs" />
+    <InternalsVisibleTo Include="Turian.Audio.Tests" /><InternalsVisibleTo Include="Turian.Audio.Miniaudio.Tests" />
+  </ItemGroup>
+  <Target Name="PrecastRuntimeAssemblies" AfterTargets="Build"><Copy SourceFiles="$(TargetPath)" DestinationFolder="$(MSBuildProjectDirectory)/../../../Brick~/Precast/lib" /></Target>
+  <Target Name="PrecastTypeManifest" AfterTargets="CoreBuild">
+    <Copy SourceFiles="$(MSBuildProjectDirectory)/../../types.json" DestinationFolder="$(MSBuildProjectDirectory)/../../Precast" SkipUnchangedFiles="true" />
+  </Target>
+</Project>

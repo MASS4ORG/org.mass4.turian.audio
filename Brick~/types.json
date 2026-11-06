@@ -1,0 +1,40 @@
+{
+  "Types": [
+    {
+      "FullyQualifiedName": "Turian.Audio.AudioEvent",
+      "TypeId": "bbf8bc67-0f8c-4613-a263-5f1ee7cb28f6",
+      "Assembly": "Turian.Audio",
+      "EditorOnly": false
+    },
+    {
+      "FullyQualifiedName": "Turian.Audio.AudioClip",
+      "TypeId": "61f1fcd3-747a-4402-a9ba-31b12d4cb8d9",
+      "Assembly": "Turian.Audio",
+      "EditorOnly": false
+    },
+    {
+      "FullyQualifiedName": "Turian.Audio.AudioSource",
+      "TypeId": "0a76c35e-2590-470d-8bea-d33ce4bfe8ec",
+      "Assembly": "Turian.Audio",
+      "EditorOnly": false
+    },
+    {
+      "FullyQualifiedName": "Turian.Audio.AudioListener",
+      "TypeId": "66b53ae9-f948-4ff0-8859-bb024611e46d",
+      "Assembly": "Turian.Audio",
+      "EditorOnly": false
+    },
+    {
+      "FullyQualifiedName": "Turian.Audio.AudioSettings",
+      "TypeId": "0edcd9ad-e28c-4cb5-9174-26d6cbd3b33c",
+      "Assembly": "Turian.Audio",
+      "EditorOnly": false
+    },
+    {
+      "FullyQualifiedName": "Turian.Audio.AudioMixer",
+      "TypeId": "07125d85-afd4-55c0-b543-1ce96ed39462",
+      "Assembly": "Turian.Audio",
+      "EditorOnly": false
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "__TypeId": "ca028d68-85a9-5f3d-ad2f-c54db757d6fa",
+  "Id": "9b16cdaa-e425-46e0-b856-187ea33a134b",
+  "Name": "Turian.Audio",
+  "RootNamespace": "Turian.Audio",
+  "EditorOnly": false,
+  "AllowUnsafeCode": true
+}

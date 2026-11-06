@@ -1,0 +1,32 @@
+{
+  "id": "org.mass4.turian.audio",
+  "version": "1.0.0",
+  "displayName": "Audio",
+  "description": "Event-based audio, pooled mixing and silent server operation.",
+  "author": "MASS4",
+  "license": "MPL-2.0",
+  "scopes": ["project", "studio"],
+  "categories": ["turian:audio"],
+  "keywords": ["audio", "mixer", "sound", "dsp"],
+  "nuget": {
+    "Microsoft.CodeAnalysis.CSharp": "5.9.0"
+  },
+  "roles": {
+    "source": "Brick~/Source",
+    "tests": "Brick~/Tests",
+    "precast": "Brick~/Precast",
+    "bake": "Brick~/Bake"
+  },
+  "exclude": [
+    "Brick~/Tests",
+    ".github",
+    ".gitignore",
+    ".local",
+    ".script-*.py",
+    ".script-*.cs",
+    ".script-*.sh",
+    ".script-*.ps1",
+    "Directory.Build.props"
+  ],
+  "bake": "auto"
+}

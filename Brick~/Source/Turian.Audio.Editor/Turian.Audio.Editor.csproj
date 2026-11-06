@@ -1,0 +1,9 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup><TargetFramework>net10.0</TargetFramework><Nullable>enable</Nullable><ImplicitUsings>disable</ImplicitUsings><Version>1.0.0</Version></PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="$(TurianDir)Turian/Editor/Core/Turian.Editor.Core.csproj" />
+    <ProjectReference Include="../Turian.Audio/Turian.Audio.csproj" />
+    <Compile Include="../../../Editor/**/*.cs" />
+  </ItemGroup>
+  <Target Name="PrecastEditorAssemblies" AfterTargets="Build"><Copy SourceFiles="$(TargetPath)" DestinationFolder="$(MSBuildProjectDirectory)/../../../Brick~/Precast/editor" /></Target>
+</Project>

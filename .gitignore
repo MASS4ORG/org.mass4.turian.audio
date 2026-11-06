@@ -1,0 +1,12 @@
+Brick~/Precast/
+Brick~/Bake/
+.bricks/
+bin/
+obj/
+.script-*.py
+.script-*.cs
+.script-*.sh
+.script-*.ps1
+coverage/
+TestResults/
+.local/

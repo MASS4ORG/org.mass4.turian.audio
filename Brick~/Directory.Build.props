@@ -1,0 +1,9 @@
+<Project>
+  <PropertyGroup>
+    <TurianDir Condition="'$(TurianDir)' == ''">$([MSBuild]::NormalizeDirectory('$(MSBuildThisFileDirectory)../../../Turian'))</TurianDir>
+    <SolutionDir>$(TurianDir)</SolutionDir>
+    <NoLocalPackages>true</NoLocalPackages>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
+  </PropertyGroup>
+</Project>
