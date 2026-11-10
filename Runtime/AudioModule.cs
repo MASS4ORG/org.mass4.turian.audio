@@ -22,8 +22,9 @@ public sealed class AudioModule : IEngineServiceModule
     }
 }
 
-sealed class AudioSessionParticipant(IAudioService audio) : IEngineSessionParticipant
+sealed class AudioSessionParticipant(IAudioService audio) : IEngineSessionParticipant, IEngineSessionPauseParticipant
 {
     public void Start() { }
     public void Stop() => audio.Reset();
+    public void SetPaused(bool paused) => audio.SetApplicationPaused(paused);
 }

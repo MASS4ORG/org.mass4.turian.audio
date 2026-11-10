@@ -193,6 +193,9 @@ public interface IAudioService : IDisposable
     bool SetMasterVolume(float volume);
     /// <summary>Queues the listener pose.</summary>
     bool SetListener(in AudioListenerState listener);
+    /// <summary>Releases the output device while the application is in the background, and restores it on return.</summary>
+    /// <param name="paused">Whether the application is now in the background.</param>
+    void SetApplicationPaused(bool paused) { }
     /// <summary>Current voice, stream and dropout counters.</summary>
     AudioStatistics Statistics { get; }
     /// <summary>Stops callbacks and releases all voices and prepared event data.</summary>

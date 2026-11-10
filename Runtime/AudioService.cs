@@ -37,6 +37,8 @@ public sealed unsafe partial class AudioService : IAudioService, IAudioMixerServ
     long nextVoice;
     int callbackFault;
     bool disposed;
+    bool applicationPaused;
+    bool resumeDevice;
 
     /// <summary>Creates a stopped session; preparing the first event starts its device.</summary>
     public AudioService(IAudioDevice device, IMixerGraph mixer, AudioSettings settings,
@@ -347,8 +349,38 @@ public sealed unsafe partial class AudioService : IAudioService, IAudioMixerServ
         });
     }
 
+    /// <inheritdoc/>
+    public void SetApplicationPaused(bool paused)
+    {
+        CheckProducer();
+        if (applicationPaused == paused)
+        {
+            return;
+        }
+        applicationPaused = paused;
+        if (paused)
+        {
+            resumeDevice = device.State == AudioDeviceState.Started;
+            if (resumeDevice)
+            {
+                device.Stop();
+                context.Free();
+            }
+        }
+        else if (resumeDevice)
+        {
+            resumeDevice = false;
+            StartDevice();
+        }
+    }
+
     void StartDevice()
     {
+        if (applicationPaused)
+        {
+            resumeDevice = true;
+            return;
+        }
         if (device.State == AudioDeviceState.Started)
         {
             return;
@@ -463,6 +495,8 @@ public sealed unsafe partial class AudioService : IAudioService, IAudioMixerServ
     public void Reset()
     {
         CheckProducer();
+        applicationPaused = false;
+        resumeDevice = false;
         device.Stop();
         if (context.IsAllocated)
         {
