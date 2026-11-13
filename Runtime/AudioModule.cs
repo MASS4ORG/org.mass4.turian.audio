@@ -9,7 +9,7 @@ public sealed class AudioModule : IEngineServiceModule
     /// <inheritdoc/>
     public void ConfigureServices(IServiceCollection services)
     {
-        if (!services.GetEngineSession().Interactive)
+        if (!services.GetApplicationContext().Interactive)
         {
             services.AddSingleton<IAudioService, SilentAudioService>();
             services.AddSingleton<IAudioMixerService, SilentAudioMixerService>();
@@ -18,11 +18,11 @@ public sealed class AudioModule : IEngineServiceModule
         {
             AudioServices.AddAudio(services, static sp => sp.GetRequiredService<IAppSettings>().Get<AudioSettings>());
         }
-        services.AddSingleton<IEngineSessionParticipant, AudioSessionParticipant>();
+        services.AddSingleton<IApplicationParticipant, AudioApplicationParticipant>();
     }
 }
 
-sealed class AudioSessionParticipant(IAudioService audio) : IEngineSessionParticipant, IEngineSessionPauseParticipant
+sealed class AudioApplicationParticipant(IAudioService audio) : IApplicationParticipant, IApplicationPauseParticipant
 {
     public void Start() { }
     public void Stop() => audio.Reset();

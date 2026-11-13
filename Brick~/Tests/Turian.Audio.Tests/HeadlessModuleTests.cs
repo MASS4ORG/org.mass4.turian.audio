@@ -9,11 +9,11 @@ public sealed class HeadlessModuleTests
     {
         var loader = Substitute.For<IAssetLoader>();
         var services = new ServiceCollection().AddSingleton(loader)
-            .AddSingleton(new EngineSessionContext(EngineSessionKind.Headless));
+            .AddSingleton(new ApplicationContext(ApplicationKind.Headless));
         new AudioModule().ConfigureServices(services);
         using var provider = services.BuildServiceProvider();
         var audio = Assert.IsType<SilentAudioService>(provider.GetRequiredService<IAudioService>());
-        using var lifetime = new EngineSessionLifetime(provider.GetServices<IEngineSessionParticipant>());
+        using var lifetime = new ApplicationLifetime(provider.GetServices<IApplicationParticipant>());
         lifetime.Start();
         audio.Prepare(new DataAssetReference<AudioEvent>(Guid.NewGuid()));
         audio.Post("ambient", Guid.Empty, new AudioParameterSet());
